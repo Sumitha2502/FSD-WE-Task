@@ -1,0 +1,82 @@
+HTTP:
+
+HTTP stands for hypertext transfer protocol & it is used in client-server communication. By using HTTP user sends the request to the server & the server sends the response to the user. HTTP/1.1 which was created in 1997 & the new one is HTTP/2 which was created in 2015.
+
+HTTP/1.1: 
+
+Developed by Timothy Berners-Lee in 1989 as a communication standard for the World Wide Web, HTTP is a top-level application protocol that exchanges information between a client computer and a local or remote web server. 
+
+When you make a request to the server for the www.google.com page & server responds to you as a resource www.google.com page, before sending the request and the response there is a TCP connection established between client & server. again you make a request to the server for image img.jpg & the server gives a response as an image img.jpg. the connection was not lost here after the first request because we add a keep-alive header which is the part of the request so there is an open connection between the server & client, there is a persistent connection which means several requests & responses are merged in a single connection. These are the drawbacks that lead to the creation of HTTP/2. The first problem is HTTP/1.1 transfer all the requests & responses in the plain text message form. The second one is head of line blocking in which TCP connection is blocked all other requests until the response does not receive. all the information related to the header file is repeated in every request.
+
+HTTP/2: 
+
+In 2015, Internet Engineering Task Force (IETF) release HTTP/2, the second major version of the most useful internet protocol, HTTP. It was derived from the earlier experimental SPDY protocol. HTTP/2 works on the binary framing layer instead of textual that converts all the messages in binary format, it works on fully multiplexed that is one TCP connection is used for multiple requests. HTTP/2 uses HPACK which is used to split data from header. It compresses the header. The server sends all the other files like CSS & JS without the request of the client using the PUSH frame.
+
+Request multiplexing:
+HTTP/2 can send multiple requests for data in parallel over a single TCP connection. This is the most advanced feature of the HTTP/2 protocol because it allows you to download web files asynchronously from one server. Most modern browsers limit TCP connections to one server.
+
+Main goals of developing HTTP/2 was:
+
+1.Protocol negotiation mechanism – protocol electing, eg. HTTP/1.1, HTTP/2 
+2.High-level compatibility with HTTP/1.1 – methods, status codes, URIs and header fields.
+3.Page load speed improvements:
+-Compression of request headers
+-Binary protocol
+-HTTP/2 Server Push
+-Request multiplexing over a single TCP connection
+-Request pipelining
+-HOL blocking (Head-of-line) – Package blocking
+
+
+HTTP/1.1:
+It works on the textual format.	
+There is head of line blocking that blocks all the requests behind it until it doesn’t get its all resources.
+It uses requests resource Inlining for use getting multiple pages	
+It compresses data by itself.
+
+HTTP/2:
+It works on the binary protocol.
+It allows multiplexing so one TCP connection is required for multiple requests.
+It uses PUSH frame by server that collects all multiple pages 
+It uses HPACK for data compression.
+
+_________________________________________________________________________________________________________________________________________________________________________
+
+
+Objects And Its Internal Representation In JavaScript:
+
+Objects, in JavaScript, is it’s most important data-type and forms the building blocks for modern JavaScript. These objects are quite different from JavaScript’s primitive data-types(Number, String, Boolean, null, undefined and symbol) in the sense that while these primitive data-types all store a single value each (depending on their types).
+
+Objects are more complex and each object may contain any combination of these primitive data-types as well as reference data-types, bjects in JavaScript may be defined as an unordered collection of related data, of primitive or reference types, in the form of “key: value” pairs. These keys can be variables or functions and are called properties and methods, respectively, in the context of an object.
+
+For Eg. If your object is a student, it will have properties like name, age, address, id, etc and methods like updateAddress, updateNam, etc.
+
+Creating Objects In JavaScript :
+
+Create JavaScript Object with Object Literal:
+One of easiest way to create a javascript object is object literal, simply define the property and values inside curly braces as shown below
+
+let bike = {name: 'SuperSport', maker:'Ducati', engine:'937cc'};
+
+Create JavaScript Object with Constructor:
+Constructor is nothing but a function and with help of new keyword, constructor function allows to create multiple objects of same flavor as shown below
+
+function Vehicle(name, maker) {
+   this.name = name;
+   this.maker = maker;
+}
+let car1 = new Vehicle(’Fiesta’, 'Ford’);
+let car2 = new Vehicle(’Santa Fe’, 'Hyundai’)
+console.log(car1.name);    //Output: Fiesta
+console.log(car2.name);    //Output: Santa Fe
+
+Using the JavaScript Keyword new:
+The following example also creates a new JavaScript object with four properties:
+
+Example
+
+var person = new Object();
+person.firstName = “John”;
+person.lastName = “Doe”;
+person.age = 50;
+person.eyeColor = “blue”;
